@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    <head>
+        <title>My Project</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+            
+        </script>
+        <script src="https://login2explore.com/jpdb/resources/js/0.0.4/jpdb-commons.js"></script>
+       
+    </head>
+    <body>
+        <div class="container">
+            <h2> This is a Automatic Result Generator</h2>
+            <form id="Studsheet" method="post">
+                <div class="form-group">
+                    <span><label for="studId">Student's ID:</label> <label id="studIdMsg">
+                        </label></span>
+                    <input type="text" class="form-control" name="studId" id="studId"
+                           placeholder="Enter Student's ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="studName">Student Name:</label>
+                    <input type="text" class="form-control" id="studName"
+                           placeholder="Enter Student's Name" name="empName">
+                </div>
+                <div class="form-group">
+                    <label for="studEmail">Email:</label>
+                    <input type="email" class="form-control" id="studEmail"
+                           placeholder="Enter Student's Email" name="studEmail">
+                </div>
+                <div class="form-group">
+                    <label for="studDOB">Date of Birth:</label>
+                    <input type="date" class="form-control" id="studDOB"
+                          name="studDOB">
+                </div>
+                <div class="form-group">
+                    <label for="javaMarks">Marks in Java:</label>
+                    <input type="number" class="form-control" id="javaMarks"
+                          placeholder="Enter Marks Obtained in java(Out of 100)" name="javaMarks">
+                </div>
+                <div class="form-group">
+                    <label for="dbmsMarks">Marks in DBMS:</label>
+                    <input type="number" class="form-control" id="dbmsMarks"
+                          placeholder="Enter Marks Obtained in DBMS(Out of 100)" name="dbmsMarks">
+                </div>
+                <div class="form-group">
+                    <label for="nisMarks">Marks in Network Information and Security:</label>
+                    <input type="number" class="form-control" id="nisMarks"
+                          placeholder="Enter Marks Obtained in Network Infromation and Security(Out of 100)" name="nisMarks">
+                </div>
+                <div class="form-group">
+                    <label for="aiMarks">Marks in Artificial Intelligence:</label>
+                    <input type="number" class="form-control" id="aiMarks"
+                          placeholder="Enter Marks Obtained in AI(Out of 100)" name="aiMarks">
+                </div>
+               <div class="form-group">
+                    <label for="mlMarks">Marks in Machine Learning:</label>
+                    <input type="number" class="form-control" id="mlMarks"
+                          placeholder="Enter Marks Obtained in Machine Learning(Out of 100)" name="mlMarks">
+                </div>
+                
+                <input type="button" class="btn btn-primary" id="getMarks" value="Total Marks"
+                       onclick="showMarks();">
+                <input type="button" class="btn btn-primary" id="percet" value="Percentages"
+                       onclick="showPercent();">
+                <input type="button" class="btn btn-primary" id="studSave" value="Save the Details"
+                       onclick="saveStudent();">
+                
+            </form>
+            <input type="button" class="btn btn-primary" id="studShow" value="Show My Details"
+                       onclick="showDetails();">
+        </div>
+        <script>
+            function validateAndGetFormData() {
+                var studIdVar = $("#studId").val();
+                if (studIdVar === "") {
+                    alert("Student ID Required Value");
+                    $("#studId").focus();
+                    return "";
+                }
+                var studNameVar = $("#studName").val();
+                if (studNameVar === "") {
+                    alert("Student Name is Required Value");
+                    $("#studName").focus();
+                    return "";
+                }
+                var studEmailVar = $("#studEmail").val();
+                if (studEmailVar === "") {
+                    alert("Student Email is Required Value");
+                    $("#studEmail").focus();
+                    return "";
+                }
+               var studDOBVar = $("#studDOB").val();
+                if (studDOBVar === "") {
+                    alert("Student DOB is Required Value");
+                    $("#studDOB").focus();
+                    return "";
+                }
+                 var javaMarksVar = $("#javaMarks").val();
+                if (javaMarksVar === "") {
+                    alert("Marks of Java are Required");
+                    $("#javaMarks").focus();
+                    return "";
+                }
+                var dbmsMarksVar = $("#dbmsMarks").val();
+                if (dbmsMarksVar === "") {
+                    alert("Marks of DBMS are Required");
+                    $("#dbmsMarks").focus();
+                    return "";
+                }
+                var nisMarksVar = $("#nisMarks").val();
+                if (nisMarksVar === "") {
+                    alert("Marks of NIS are Required");
+                    $("#nisMarks").focus();
+                    return "";
+                }
+                var aiMarksVar = $("#aiMarks").val();
+                if (aiMarksVar === "") {
+                    alert("Marks of Artificial Intelligence are Required");
+                    $("#aiMarks").focus();
+                    return "";
+                }
+                var mlMarksVar = $("#mlMarks").val();
+                if (mlMarksVar === "") {
+                    alert("Marks of Machine Learning are Required");
+                    $("#mlMarks").focus();
+                    return "";
+                }
+                if(javaMarksVar<0){
+                    alert("Negative marks found");
+                    $("#javaMarks").focus();
+                    return "";
+                }
+                if(dbmsMarksVar<0){
+                    alert("Negative marks found");
+                    $("#dbmsMarks").focus();
+                    return "";
+                }
+                if(nisMarksVar<0){
+                    alert("Negative marks found");
+                    $("#nisMarks").focus();
+                    return "";
+                }
+                if(aiMarksVar<0){
+                    alert("Negative marks found");
+                    $("#aiMarks").focus();
+                    return "";
+                }
+                if(mlMarksVar<0){
+                    alert("Negative marks found");
+                    $("#mlMarks").focus();
+                    return "";
+                }
+                var totVar=totalMarks();
+                var perVar=percent();
+                var passVar = isPass();
+                var jsonStrObj = {
+                    studId: studIdVar,
+                    studName: studNameVar,
+                    studEmail: studEmailVar,
+                    studDOB: studDOBVar,
+                    javaMarks: javaMarksVar, 
+                    dbmsMarks: dbmsMarksVar,
+                    nisMarks: nisMarksVar,
+                    aiMarks: aiMarksVar,
+                    mlMarks: mlMarksVar,
+                    total : totVar,
+                    studPer: perVar,
+                    passOrNot: passVar
+                            
+                };
+                return JSON.stringify(jsonStrObj);
+            }
+        
+            /*function resetForm() {
+                $("#studId").val("")
+                $("#studName").val("");
+                $("#studEmail").val("");
+                $("#studAge").val("");
+                $("#javaMarks").val("");
+                $("#dbmsMarks").val("");
+                $("#nisMarks").val("");
+                $("#aiMarks").val("");
+                $("#mlMarks").val("");
+                $("#studId").focus();
+            }*/
+            function totalMarks(){
+                const a = Number($("#javaMarks").val());
+                const b = Number($("#dbmsMarks").val());
+                const c = Number($("#nisMarks").val());
+                const d = Number($("#aiMarks").val());
+                const e = Number($("#mlMarks").val());
+                const total = a+b+c+d+e;
+                return total;
+            }
+            function showMarks(){
+                alert("Your total marks are :"+totalMarks()+"/500");
+            }
+            
+            function percent()
+            {
+                const per = Number((totalMarks()/500)*100);
+                return per;
+            }
+            function showPercent()
+            {
+                if (percent() < 40)
+                   alert("Sorry but you are failed! Your percentagres are "+percent()+"%");
+                else{
+                    alert("Congratulations you cleared this exam! Your percentagres are "+percent()+"%");
+                
+                }
+            }
+            function isPass(){
+                if (percent() < 40)
+                    return "Fail"
+                else{
+                    return "Pass"
+                }
+            }
+            function showDetails(){
+                var key = {
+                    studName: $("#studName").val()
+                }
+                var getRequest=createGETRequest("90938420|-31948827233521427|90947186","STUDENT","Stud-rel",key);
+                jQuery.ajaxSetup({async: false});
+                //var resultObj = createFIND_RECORDRequest(("90938420|-31948827233521427|90947186", 
+                //"STUDENT", "Stud-rel_session", JSON.stringify(key)),"/api/irl");
+                var resultObj = executeCommandAtGivenBaseUrl(getRequest, "http://api.login2explore.com:5577", "/api/irl");
+                alert(JSON.stringify(resultObj));
+                jQuery.ajaxSetup({async: true});
+                
+            }
+            function saveStudent() {
+                var jsonStr = validateAndGetFormData();
+                if (jsonStr === "") {
+                    return;
+                }
+                var putReqStr = createPUTRequest("90938420|-31948827233521427|90947186",
+                        jsonStr, "STUDENT", "Stud-rel");
+                
+                jQuery.ajaxSetup({async: false});
+                var resultObj = executeCommandAtGivenBaseUrl(putReqStr, "http://api.login2explore.com:5577", "/api/iml");
+                alert("Data saved!");
+                jQuery.ajaxSetup({async: true});
+                //resetForm();
+            }
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
