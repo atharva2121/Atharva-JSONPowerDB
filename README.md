@@ -23,3 +23,6 @@ JsonPowerDB is a Real-time, High Performance, Lightweight and Simple to Use, Res
 ![JPDB frontend](https://github.com/atharva2121/Atharva-JSONPowerDB/blob/main/jsonpowerdb.png)
 ### Data stored in JsonPowerDB through Automatic Result Generator : 
 ![JPDB frontend](https://github.com/atharva2121/Atharva-JSONPowerDB/blob/main/datajpdb.png)
+
+### Release History:
+I uploaded my project's code on github on 03-02-22 .
