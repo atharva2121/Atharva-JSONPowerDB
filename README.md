@@ -1,7 +1,7 @@
 # Atharva-JSONPowerDB
 ## Title : - "Automatic Result Generator System"
 This one is my mini project called "Automatic Result Generator System" in which, html is used for front end , javascript for backend and JsonPowerDB for database management.
-It's nothing but the user interface where student enters his/her common details such as Name, Student Id, email Id and Date of birth. As this is the result generating system, one has to enter his/her marks of respective subjects. After entering all necessary details, there are 4 buttons available for student such as, Total marks, Percentages, Save the details and Show my details. 
+It's nothing but the user interface where teacher can enter student's common details such as Name, Student Id, email Id and Date of birth. As this is the result generating system, teacher has to enter student's marks of respective subjects. After entering all necessary details, there are 4 buttons available for student such as, Total marks, Percentages, Save the details and Show my details. 
 Functionalities of these buttons are : 
 1. Total Marks - Shows total marks out off 500 of that particular student.   
 2. Percentages - Displays a message that whether that particular student passed or failed according to passing criteria and shows percentages of that particular student.
